@@ -1,19 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"os"
 )
 
 type User struct {
 	Name string
+	Bio  template.HTML
 	Age  int
-	Meta UserMeta
-}
-
-type UserMeta struct {
-	Visits int
 }
 
 func main() {
@@ -24,13 +19,9 @@ func main() {
 
 	user := User{
 		Name: "John Smith",
-		Age:  120,
-		Meta: UserMeta{
-			Visits: 4,
-		},
+		Bio:  `<script>alert("You have been h4x0r3d!");</script>`,
+		Age:  123,
 	}
-
-	fmt.Println(user.Meta.Visits)
 
 	err = t.Execute(os.Stdout, user)
 	if err != nil {
