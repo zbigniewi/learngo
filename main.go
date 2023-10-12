@@ -52,20 +52,6 @@ func pathHandler(w http.ResponseWriter, r *http.Request) {
 
 type Router struct{}
 
-// func (router Router) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-// 	switch r.URL.Path {
-// 	case "/":
-// 		homeHandler(w, r)
-// 	case "/contact":
-// 		contactHandler(w, r)
-// 	case "/faq":
-// 		faqtHandler(w, r)
-// 	default:
-// 		// handle the page not found error
-// 		http.Error(w, "Page not found", http.StatusNotFound)
-// 	}
-// }
-
 func main() {
 	r := chi.NewRouter()
 	r.Get("/", homeHandler)
