@@ -1,8 +1,9 @@
 package main
 
 import (
+	"errors"
+	"fmt"
 	"html/template"
-	"os"
 )
 
 type User struct {
@@ -12,19 +13,26 @@ type User struct {
 }
 
 func main() {
-	t, err := template.ParseFiles("hello.gohtml")
-	if err != nil {
-		panic(err)
-	}
+	err := CreateOrg()
+	fmt.Println(err)
+}
 
-	user := User{
-		Name: "John Smith",
-		Bio:  `<script>alert("You have been h4x0r3d!");</script>`,
-		Age:  123,
-	}
+func Connect() error {
+	return errors.New("Connect failed")
+}
 
-	err = t.Execute(os.Stdout, user)
+func CreateUser() error {
+	err := Connect()
 	if err != nil {
-		panic(err)
+		return fmt.Errorf("Create User: %w", err)
 	}
+	return nil
+}
+
+func CreateOrg() error {
+	err := CreateUser()
+	if err != nil {
+		return fmt.Errorf("Create Org: %w", err)
+	}
+	return nil
 }
