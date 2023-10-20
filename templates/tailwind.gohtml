@@ -7,6 +7,21 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
+  <header class="bg-pink-500 text-white">
+    <nav class="px-8 py-6 flex items-center">
+      <div class="text-3xl pr-8">Logo</div>
+      <div class="flex-grow">
+        <a class="text-lg semibold pr-8" href="/">Home</a>
+        <a class="text-lg semibold pr-8" href="/contact">Contact</a>
+        <a class="text-lg semibold pr-8" href="/faq">FAQ</a>
+      </div>
+      <div>
+        <a class="pr-4" href="#">Sign in</a>
+        <a class="px-4 py-2 bg-pink-700 rounded" href="#">Sign out</a>
+      </div>
+    </nav>
+  </header>
+
 {{end}}
 
 {{define "footer"}}
