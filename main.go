@@ -5,9 +5,9 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/zbigniewi/learngo/controllers"
-	"github.com/zbigniewi/learngo/templates"
-	"github.com/zbigniewi/learngo/views"
+	"github.com/zbigniewi/learngo/firstpage/controllers"
+	"github.com/zbigniewi/learngo/firstpage/templates"
+	"github.com/zbigniewi/learngo/firstpage/views"
 )
 
 type SomeType struct {
@@ -42,6 +42,7 @@ func main() {
 		"signup.gohtml", "tailwind.gohtml",
 	))
 	r.Get("/signup", usersC.New)
+	r.Post("/users", usersC.Create)
 
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Page not found", http.StatusNotFound)

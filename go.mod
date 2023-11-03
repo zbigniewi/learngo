@@ -1,4 +1,4 @@
-module github.com/zbigniewi/learngo
+module github.com/zbigniewi/learngo/firstpage
 
 go 1.21.3
 
